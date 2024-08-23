@@ -1,27 +1,14 @@
-import './App.css';
-import { useState } from 'react';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
-  Route
-} from "react-router-dom";
-import NavBar from './components/NavBar';
+import './App.css'
+import Navbar from './components/Navbar'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  let router = createBrowserRouter(
-    createRoutesFromElements([
-      <Route path='/' element={ <NavBar/>}>
-        
-      </Route>
-    ])
-  );
 
   return (
-    <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
-  );
+    <>
+      <Navbar/>
+    </>
+  )
 }
 
 export default App

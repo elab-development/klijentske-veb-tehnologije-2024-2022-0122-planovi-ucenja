@@ -1,0 +1,29 @@
+.Navbar{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    background-color: var(--crna);
+    padding: 1rem;
+}
+
+.NavbarUl{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 3rem;
+}
+
+.NavbarUl li a{
+    text-decoration: none;
+    color: var(--bela);
+    font-size: 1.2rem;
+}
+
+.Navbar_ikonica{
+    position: relative;
+    left: 10%;
+}
