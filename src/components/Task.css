@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     background-color: var(--crna);
-    padding: 10px 20px;
     align-items: center;
 }
 .Task-container p{
@@ -10,7 +9,7 @@
     border: solid 1px var(--bela);
     border-radius: 10px;
     font-size: 18px;
-    padding: 10px 50px;
+    padding: 10px 105px;
 }
 
 .cekiranjeDiv{
