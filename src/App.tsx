@@ -1,6 +1,7 @@
 import './App.css'
 import Ispitnirokovi from './components/Ispitnirokovi'
 import Kontakt from './components/Kontakt'
+import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Nedeljniplan from './components/Nedeljniplan'
 import Pocetna from './components/Pocetna'
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <>
-      <SignUp/>
+      <Login/>
+      {/* <SignUp/> */}
       {/* <Nedeljniplan/> */}
       {/* <Predmet/> */}
       {/* <Navbar/> */}
