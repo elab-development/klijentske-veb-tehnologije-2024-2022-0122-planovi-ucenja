@@ -1,8 +1,11 @@
 import React from 'react';
 import './Ispitnirokovi.css';
+import Navbar from './Navbar';
 
 const Ispitnirokovi: React.FC = () => {
     return (
+    <>
+        <Navbar/>
         <div className="schedule-container">
             <div className="schedule">
                 <h1>RASPORED ISPITA</h1>
@@ -46,6 +49,7 @@ const Ispitnirokovi: React.FC = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
 

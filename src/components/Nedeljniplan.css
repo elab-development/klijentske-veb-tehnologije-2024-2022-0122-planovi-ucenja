@@ -79,7 +79,7 @@
     margin-bottom: 3rem;
   }
 
-  .button_plus {
+  .button_plusNp {
     position: relative;
     width: 35px;
     height: 35px;
@@ -90,7 +90,7 @@
     margin-top: 10px;
   }
   
-  .button_plus:after {
+  .button_plusNp:after {
     content: '';
     position: absolute;
     transform: translate(-50%, -50%);
@@ -101,7 +101,7 @@
     left: 50%;
   }
   
-  .button_plus:before {
+  .button_plusNp:before {
     content: '';
     position: absolute;
     top: 50%;
@@ -112,13 +112,13 @@
     width: 4px;
   }
   
-  .button_plus:hover:before,
-  .button_plus:hover:after {
+  .button_plusNp:hover:before,
+  .button_plusNp:hover:after {
     background: #fff;
     transition: 0.2s;
   }
   
-  .button_plus:hover {
+  .button_plusNp:hover {
     background-color: #b55400;
     transition: 0.2s;
   }

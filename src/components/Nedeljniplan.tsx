@@ -42,8 +42,7 @@ const Nedeljniplan: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="button_plus" onClick={() => addTask(day as Day)}></div>
-            {/* <button className="add-task" onClick={() => addTask(day as Day)}>+</button> */}
+            <div className="button_plusNp" onClick={() => addTask(day as Day)}></div>
           </div>
         ))}
       </div>

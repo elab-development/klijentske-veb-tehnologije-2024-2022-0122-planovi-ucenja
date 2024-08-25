@@ -16,13 +16,13 @@ const Navbar = () => {
         </div>
         <div>
             <ul className='NavbarUl'>
-              <li><a href="">POCETNA</a></li>
-              <li><a href="">PLANOVI</a></li>
-              <li><a href="">ISPITNI ROKOVI</a></li>
-              <li><a href="">PREDMETI</a></li>
-              <li><a href="">KONTAKT</a></li>
-              <li><a href="">PROFIL</a></li>
-              <li><a href="">ODJAVA</a></li>
+              <li><a href="/pocetna">POCETNA</a></li>
+              <li><a href="/planovi">PLANOVI</a></li>
+              <li><a href="/rokovi">ISPITNI ROKOVI</a></li>
+              <li><a href="/predmeti">PREDMETI</a></li>
+              <li><a href="/kontakt">KONTAKT</a></li>
+              <li><a href="/profil">PROFIL</a></li>
+              <li><a href="/login">ODJAVA</a></li>
             </ul>
         </div>
     </nav>

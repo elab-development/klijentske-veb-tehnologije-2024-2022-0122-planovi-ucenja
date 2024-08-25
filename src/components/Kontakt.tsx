@@ -2,9 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import './Kontakt.css';
+import Navbar from './Navbar';
 
 const Kontakt: React.FC = () => {
   return (
+    <>
+    <Navbar/>
     <div className="contact-container">
         <h1>KONTAKTIRAJTE NAS</h1>
         <hr/>
@@ -38,8 +41,8 @@ const Kontakt: React.FC = () => {
         </form>
       </div>
         </div>
-      
     </div>
+</>
   );
 };
 

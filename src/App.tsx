@@ -1,4 +1,5 @@
 import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Ispitnirokovi from './components/Ispitnirokovi'
 import Kontakt from './components/Kontakt'
 import Login from './components/Login'
@@ -14,15 +15,19 @@ function App() {
 
   return (
     <>
-      <Login/>
-      {/* <SignUp/> */}
-      {/* <Nedeljniplan/> */}
-      {/* <Predmet/> */}
-      {/* <Navbar/> */}
-      {/* <Pocetna/> */}
-      {/* <Task/> */}
-      {/* <Ispitnirokovi/> */}
-      {/* <Kontakt/> */}
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/pocetna" element={<Pocetna />} />
+          <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/planovi" element={<Nedeljniplan />} />
+          <Route path="/rokovi" element={<Ispitnirokovi />} />
+        </Routes>
+      </div>
+    </Router>
     </>
   )
 }
