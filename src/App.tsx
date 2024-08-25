@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <Nedeljniplan/>
+      {/* <Nedeljniplan/> */}
       {/* <Predmet/> */}
       {/* <Navbar/> */}
       {/* <Pocetna/> */}
