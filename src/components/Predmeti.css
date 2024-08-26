@@ -1,0 +1,61 @@
+.Predmeti-container{
+    background-color: var(--siva);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 95px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.Predmeti-container h1{
+    color: var(--crna);
+    margin-bottom: 0;
+}
+.Predmeti-container hr{
+    position: relative;
+    border: none; 
+    height: 5px; 
+    background-color: var(--narandzasta); 
+    border-radius: 10px; 
+    width: 12rem; 
+    left: -2rem;
+  }
+.lista-polozeni-container{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.divZaPolja{
+    display: flex;
+    flex-direction: column;
+    color: var(--crna);
+}
+.DodajPredmet{
+    color: var(--bela);
+    background-color: var(--narandzasta);
+    text-transform: uppercase;
+    width: 140px;
+    position: relative;
+    left: 25%;
+    margin-top: 5px;
+}
+.divZaInput{
+    margin-top: 10px;
+    position: relative;
+    left: -20rem;
+}
+.divPredmetSaDugmetom{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.divPredmetSaDugmetom button{
+    color: var(--bela);
+    background-color: var(--narandzasta);
+    height: inherit;
+    margin-top: 10px;
+    margin-left: 5px;
+}

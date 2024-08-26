@@ -27,8 +27,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
-    width: 900px;
+    min-height: 550px;
+    min-width: 900px;
 }
 
 .button_plus {
@@ -74,4 +74,34 @@
   .button_plus:hover {
     background-color: #b55400;
     transition: 0.2s;
+  }
+
+  .paginacijaB{
+    margin-top: 5px;
+    color: var(--crna);
+  }
+  .cancelB{
+    margin-left: 10px;
+    background-color: rgb(250, 34, 34);
+    color: var(--bela);
+  }
+  .addTaskB{
+    margin-left: 10px;
+    background-color: var(--narandzasta);
+    color: var(--bela);
+  }
+
+  input{
+    border: 1px solid var(--narandzasta);
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: var(--siva);
+    color: var(--bela);
+  }
+  ::placeholder{
+    color: var(--bela);
+  }
+  .spanP {
+    color: var(--bela);
+    margin: 0 5px;
   }

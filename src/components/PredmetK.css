@@ -1,0 +1,18 @@
+.Predmet-container{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--siva);
+    align-items: center;
+}
+.Predmet-container .predmet{
+    color: var(--bela);
+    border: solid 1px var(--bela);
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 50px;
+    background-color: var(--crna);
+    margin-bottom: 5px;
+}
+.Predmet-container .predmet-esbp{
+    padding:10px;  
+}

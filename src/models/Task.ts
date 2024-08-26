@@ -1,4 +1,4 @@
-interface Task {
+export interface Task {
     ime: string;
     predmet: string;
     komentar: string;

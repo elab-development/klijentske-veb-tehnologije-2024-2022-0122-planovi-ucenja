@@ -1,4 +1,4 @@
-interface Predmet {
+export interface Predmet {
     ime: string;
     brojESBP: number;
 }

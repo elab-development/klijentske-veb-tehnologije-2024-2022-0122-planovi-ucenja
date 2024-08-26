@@ -66,6 +66,10 @@
     color: var(--bela);
 }
 
+.signup-link a{
+    color: var(--bela);
+}
+
 .login-container hr{
     position: relative;
     border: none; 

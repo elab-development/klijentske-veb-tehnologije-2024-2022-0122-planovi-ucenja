@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Nedeljniplan.css';
 import Navbar from './Navbar';
+import { User } from '../models/User';
 
 type Day = 'Ponedeljak' | 'Utorak' | 'Sreda' | 'Cetvrtak' | 'Petak' | 'Subota' | 'Nedelja';
 
 const Nedeljniplan: React.FC = () => {
+  const [user] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem('loggedInUser');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
+
   const [tasks, setTasks] = useState<Record<Day, string[]>>({
     Ponedeljak: [],
     Utorak: [],
@@ -14,16 +20,35 @@ const Nedeljniplan: React.FC = () => {
     Subota: [],
     Nedelja: []
   });
-
-  const addTask = (day: Day) => {
+  const storedRaspored = localStorage.getItem(`${user?.username}_raspored`);
+  let NedeljniRaspored: Record<Day, string[]> = storedRaspored ? JSON.parse(storedRaspored) : { 
+    Ponedeljak: [],
+    Utorak: [],
+    Sreda: [],
+    Cetvrtak: [],
+    Petak: [],
+    Subota: [],
+    Nedelja: []
+  };
+  const addPlan = (day: Day) => {
     const task = prompt('Enter a new task:');
+
     if (task) {
-      setTasks((prevTasks) => ({
-        ...prevTasks,
-        [day]: [...prevTasks[day], task],
-      }));
+      NedeljniRaspored[day].push(task);
+      localStorage.setItem(`${user?.username}_raspored`, JSON.stringify(NedeljniRaspored));
+      setTasks(NedeljniRaspored);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+        const storedRaspored = localStorage.getItem(`${user.username}_raspored`);
+        if (storedRaspored) {
+            setTasks(JSON.parse(storedRaspored));
+        }
+    }
+}, [user]);
+
 
   return (
     <>
@@ -42,7 +67,7 @@ const Nedeljniplan: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="button_plusNp" onClick={() => addTask(day as Day)}></div>
+            <div className="button_plusNp" onClick={() => addPlan(day as Day)}></div>
           </div>
         ))}
       </div>

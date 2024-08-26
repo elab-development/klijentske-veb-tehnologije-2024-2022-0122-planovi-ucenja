@@ -65,6 +65,9 @@
     margin-top: 5px;
     color: var(--bela);
 }
+.login-link a{
+    color: var(--bela);
+}
 
 .signup-container hr{
     position: relative;

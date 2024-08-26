@@ -51,7 +51,7 @@
   
   .task {
     background-color: var(--narandzasta);
-    padding: 5px;
+    padding: 5px 20px;
     margin-bottom: 5px;
     border-radius: 3px;
     text-align: center;

@@ -1,6 +1,19 @@
+import { useState } from 'react';
+import { User } from '../models/User';
 import './Navbar.css'
 
 const Navbar = () => {
+
+  const [user, setUser] = useState<User | null>(() => {
+    const LoggedUser = localStorage.getItem('loggedInUser');
+    return LoggedUser ? JSON.parse(LoggedUser) : null;
+});
+  
+  const logout = ()=>{
+    localStorage.removeItem('loggedInUser');
+    setUser(null);
+  }
+
   return (
     <nav className='Navbar'>
         <div className='Navbar_ikonica'>
@@ -22,7 +35,7 @@ const Navbar = () => {
               <li><a href="/predmeti">PREDMETI</a></li>
               <li><a href="/kontakt">KONTAKT</a></li>
               <li><a href="/profil">PROFIL</a></li>
-              <li><a href="/login">ODJAVA</a></li>
+              <li><a href="/login" onClick={logout}>ODJAVA</a></li>
             </ul>
         </div>
     </nav>

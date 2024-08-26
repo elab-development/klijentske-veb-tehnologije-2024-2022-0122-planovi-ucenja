@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
-import User from '../models/User';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { User } from '../models/User';
 import './SignUp.css';
 
 const SignUp: React.FC = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        retypePassword: ''
-    });
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [retypePassword, setRetypePassword] = useState('');
+    const [users, setUsers] = useState<User[]>([]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+    const navigate = useNavigate();
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const newUser = new User(
-            formData.firstName,
-            formData.lastName,
-            formData.username,
-            formData.email,
-            formData.password
-        );
-
-        if (newUser.validatePassword(formData.retypePassword)) {
-            console.log('User registration successful', newUser);
-        } else {
-            console.error('Passwords do not match');
+    useEffect(() => {
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+        setUsers(JSON.parse(storedUsers));
         }
+    }, []);
+
+    const handleSubmit= (e: React.FormEvent) => {
+        e.preventDefault();
+        const newUser: User = new User(firstName,lastName,username, email, password);
+        const updatedUsers = [...users, newUser];
+        setUsers(updatedUsers);
+
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+        console.log('Registered Users:', updatedUsers);
+
+        setFirstName('');
+        setLastName('');
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setRetypePassword('');
+
+        navigate('/login');
     };
 
     return (
@@ -45,9 +51,9 @@ const SignUp: React.FC = () => {
                         type="text" 
                         name="firstName" 
                         placeholder="First name" 
-                        value={formData.firstName}
-                        onChange={handleChange}
+                        value={firstName}
                         required 
+                        onChange={(e) => setFirstName(e.target.value)}
                     />
                 </div>
 
@@ -56,9 +62,9 @@ const SignUp: React.FC = () => {
                         type="text" 
                         name="lastName" 
                         placeholder="Last name" 
-                        value={formData.lastName}
-                        onChange={handleChange}
+                        value={lastName}
                         required 
+                        onChange={(e) => setLastName(e.target.value)}
                     />
                 </div>
 
@@ -67,9 +73,9 @@ const SignUp: React.FC = () => {
                         type="text" 
                         name="username" 
                         placeholder="Username" 
-                        value={formData.username}
-                        onChange={handleChange}
+                        value={username}
                         required 
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
 
@@ -78,9 +84,9 @@ const SignUp: React.FC = () => {
                         type="email" 
                         name="email" 
                         placeholder="Email" 
-                        value={formData.email}
-                        onChange={handleChange}
+                        value={email}
                         required 
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
 
@@ -89,9 +95,9 @@ const SignUp: React.FC = () => {
                         type="password" 
                         name="password" 
                         placeholder="Password" 
-                        value={formData.password}
-                        onChange={handleChange}
+                        value={password}
                         required 
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 
@@ -100,16 +106,16 @@ const SignUp: React.FC = () => {
                         type="password" 
                         name="retypePassword" 
                         placeholder="Retype password" 
-                        value={formData.retypePassword}
-                        onChange={handleChange}
+                        value={retypePassword}
                         required 
+                        onChange={(e) => setRetypePassword(e.target.value)}
                     />
                 </div>
 
                 <button type="submit" className="signup-button">SIGN UP</button>
             </form>
             <hr />
-            <p className="login-link">Već imate nalog? Ulogujte se</p>
+            <p className="login-link">Već imate nalog? <a href="/login">Ulogujte se</a></p>
         </div>
     );
 };
