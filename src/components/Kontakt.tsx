@@ -11,7 +11,6 @@ const Kontakt: React.FC = () => {
     e.preventDefault();
     window.alert('Vaša poruka je poslata!');
 
-    // Reset the form
     if (formRef.current) {
       formRef.current.reset();
     }
