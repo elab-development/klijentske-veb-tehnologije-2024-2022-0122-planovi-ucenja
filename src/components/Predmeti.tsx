@@ -4,11 +4,12 @@ import './Predmeti.css';
 import { Predmet } from '../models/Predmet';
 import { User } from '../models/User';
 import PredmetK from './PredmetK';
+import { PolozeniPredmet } from '../models/PolozeniPredmet';
 
 const Predmeti: React.FC = () => {
     const [newPredmet, setNewPredmet] = useState<Predmet>({ ime: '', brojESBP: 0 });
     const [predmeti, setPredmeti] = useState<Predmet[]>([]);
-    const [polozeniPredmeti, setPolozeniPredmeti] = useState<Predmet[]>([]);
+    const [polozeniPredmeti, setPolozeniPredmeti] = useState<PolozeniPredmet[]>([]);
 
     const [user] = useState<User | null>(() => {
         const storedUser = localStorage.getItem('loggedInUser');
@@ -31,7 +32,15 @@ const Predmeti: React.FC = () => {
         const updatedPredmeti = predmeti.filter((p) => p !== predmet);
         setPredmeti(updatedPredmeti);
         localStorage.setItem(`${user?.username}_predmeti`, JSON.stringify(updatedPredmeti));
-        const updatedPolozeniPredmeti = [...polozeniPredmeti, predmet];
+
+        // const updatedPolozeniPredmeti = [...polozeniPredmeti, predmet];
+        // setPolozeniPredmeti(updatedPolozeniPredmeti);
+        // localStorage.setItem(`${user?.username}_polozenipredmeti`, JSON.stringify(updatedPolozeniPredmeti));
+
+
+
+        const newPolozeniPredmet = new PolozeniPredmet(predmet.ime,predmet.brojESBP, true);
+        const updatedPolozeniPredmeti = [...polozeniPredmeti, newPolozeniPredmet];
         setPolozeniPredmeti(updatedPolozeniPredmeti);
         localStorage.setItem(`${user?.username}_polozenipredmeti`, JSON.stringify(updatedPolozeniPredmeti));
     };
@@ -63,7 +72,7 @@ const Predmeti: React.FC = () => {
                         <div>
                             {predmeti.map((predmet, index) => (
                                 <div className='divPredmetSaDugmetom' key={index}>
-                                    <PredmetK predmet={predmet} />
+                                    <PredmetK ime={predmet.ime} brojESBP={predmet.brojESBP} polozen={false}/>
                                     <button onClick={() => handleMarkAsPolozen(predmet)}>
                                         Oznaci kao polozen
                                     </button>
@@ -75,7 +84,7 @@ const Predmeti: React.FC = () => {
                         <h2>POLOŽENI PREDMETI</h2>
                         <div>
                             {polozeniPredmeti.map((predmet, index) => (
-                                <PredmetK key={index} predmet={predmet} />
+                                <PredmetK ime={predmet.ime} brojESBP={predmet.brojESBP} polozen={true}/>
                             ))}
                         </div>
                     </div>

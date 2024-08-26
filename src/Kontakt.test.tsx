@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom'; // Correct import
+import '@testing-library/jest-dom';
 import Kontakt from './components/Kontakt';
 
 describe('Kontakt Component', () => {
