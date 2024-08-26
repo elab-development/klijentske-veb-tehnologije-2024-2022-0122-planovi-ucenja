@@ -36,7 +36,7 @@ const Kontakt: React.FC = () => {
           </div>
 
           <div className="contact-form-container">
-            <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>
+          <form className="contact-form" onSubmit={handleSubmit} ref={formRef} data-testid="contact-form">
               <div className="form-group">
                 <input type="text" placeholder="Vase Ime" className="form-input" required />
               </div>
